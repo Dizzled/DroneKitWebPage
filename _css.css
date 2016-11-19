@@ -1,0 +1,53 @@
+body
+{
+    background:lightgray
+}
+
+.center32padding {
+    text-align: center
+}
+
+.content{ 
+    margin: auto; 
+    font-size: large;
+}
+
+body,h1,h2,h3,h4,h5
+{
+    font-family: "PT Serif", sans-serif;
+    color: black;
+
+}
+#headerContent{
+
+    text-shadow: 4px 4px 4px #aaa;
+}
+
+#MAVLink{
+
+    height: auto;
+    max-width:100%
+}
+img {
+    max-width: 100%;
+    height: auto;
+
+
+
+
+.alt{
+
+    margin:auto;
+    text-align:center;
+}
+
+#postreq{
+
+    margin:auto;
+    text-align:left;
+}
+#wxreq{
+
+    margin:auto
+
+}

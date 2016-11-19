@@ -1,7 +1,220 @@
 <!DOCTYPE html>
 <html>
-<body>
-<h1>Hello World</h1>
-<p>I'm hosted with GitHub Pages.</p>
-</body>
+<head>
+<title>How To Guide</title>
+
+<link href="https://fonts.googleapis.com/css?family=PT+Serif" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="_css.css">
+
+<style>
+body,h1,h2,h3,h4
+{font-family: "PT Serif", sans-serif;}
+</style>
+
+</head>
+<body onload="resizeFrames()">
+
+<!--content for the page-->
+<div style="max-width:1800px">
+
+<!-- Header -->
+<header class="center32padding">
+  <img src = "Dronkit_Images\Cat.jpg" width="35%" height="25%">
+  <h1 id = "headerContent"><b>How To Guide For Drone Kit..ty API</b></h1>
+  <p><em>Welcome to an instructional guide to installing DroneKit API and running it's scripts</em><span></span></p>
+   <p><a href="http://python.dronekit.io/"><b>DroneKit Official Documentaion<b></a></p>
+</header>
+
+<div class="TopContent">
+  <div>
+    <div id="overview">
+      <h2><b>Overview</b></h2>
+      <hr>
+      <h3>What is DroneKit?</h>
+    </div>
+    <div>
+      <p class="content">Well there are a couple versions of DroneKit that are API's for Python, Anroid and the cloud.
+        They all have their own documentation on how to interact ArduPilot. For this How To Guide I will be illustrating the installation and scripting for Python API.
+        There really isn't a good comprehensive source to understand all the steps in order on how to setup so as a programmer you can begin writing your own code to
+        run on the simlation SITL or conduct flight testing with. In that I hope that you will gain the understanding and learn how to call and write your own flight logic.
+        <p class="content">
+        The API communicates with vehicles over MAVLink. This provides the programmic access to a connected vehicle's telemetry, state and parameter information.
+         What does this mean in english? It provides control over the autopilot and where it goes along with how high and fast it flies there.
+         DroneKit is most compatible with ArduPilot (What the 3DR Solo uses for its Autopilot).
+         And uses Asyncronous communication, think Data packets that don't always stream since it has an autopilot.
+         The MAVLink protocol is:<a href=http://qgroundcontrol.org/dev/mavlink_onboard_integration_tutorial>MAVLink</href></a></p></div>
+         <div>
+           <img id="MAVLink" img src = "Dronkit_Images\Mavlink_List.png" width="50%" height="50%">
+         </div>
+      </div>
+    </div>
+  </div>
+  <hr>
+ <!--Phase 2 Content -->
+<div class="MiddleContentA">
+    <div id="middleA">
+      <h3><b>Phase 1 Getting Setup</b></h3>
+    </div>
+    <div>
+      <p class ="contentA">Step 1<ul>
+        <p>
+        <li>Before installation you need to have python version 2.7 I'm not sure if you can use version 3.5 and on but, the documentation specifically states that you need version 2.7 installed on your computer.</li>
+        <p>
+        <li>Install Python Pip package get-pip.py Drone kit from Git Hub repository ( https://github.com/3drobotics/solodevguide ) for install process. This step might already be completed depending on which version of Python you have.</li>
+        <p>
+        <li>Install SITL software to run simulation. When the software is running a simulation has a method element named connect() specifying the string of the protocol. The method returns a object Vehicle.</li>
+        <p>
+        <li>From (http://python.dronekit.io/guide/quick_start.html) run from the command line run.<p><img src="Dronkit_Images\pip install.png" style="width:20%">
+        <p>
+        <li>Python Script Shell IDLE copy and paste the Basic "Hello Drone" script into a new file hello.py and save that file local to the Python directory would be my recommendation while also creating a new file for future saved projects. Once saved open Python IDLE if it's not already and select file and open. From there select Run Module and will see this as an output where the simulation() is now a callable node that can be used to mesh with.</li>
+        <p><img src="Dronkit_Images\first script.png" style="width:50%">
+        <p>WOW! We just ran our first SITL script and now have an active running aircraft who's attributes can be called upon!</p>
+        <hr>
+        <!--Phase 2 Content -->
+ <div class="MiddleContentB">
+    <div class="middleB">
+     <h3><b>Phase 2 Using Examples</b></h3>
+     </div>
+     <div>
+      <p class="contentB">Step 2<ul>
+      <p>
+      <li>In order to run some of the example scripts you will need to install the dronekit-python/examples from git hub.
+        If you don't have git installed it's a fairly easy process to go and download that program at <a href="https://git-scm.com/book/en/v1/Getting-Started-Installing-Git" a>https://git-scm.com/book/en/v1/Getting-Started-Installing-Git</a> then from the command line run the git install dronekit-python examples package.</li>
+      <p><img src="Dronkit_Images\Git_Examples.png" style="width:50%">
+      <p>
+        <li>After installation of the example packages you can now go and look through some of the scripts for setting attributes such as Vehicle.mode, Vehicle.armed, Vehicle.airspeed, Vehicle.home_location(special considerations for changing this value). If you have never used python to code like me it's a good idea to look through some of the scripts to see some of the differences between your native syntax and python.</li>
+    <p>
+  <hr>
+  <!--Phase 3 Content -->
+ <div class="MiddleContentB">
+    <div class="middleB">
+     <h3><b>Phase 3 Exploring Attributes</b></h3>
+     <div>
+       <p class="contentB">Step 3<ul>
+        <p>
+        <li>Now we have everything in place to run our first simulation.
+           This part is relatively simple to do simply enter from the script location command prompt:
+           dronekit-sitl copter (This part isn't really that clear the API has you run hello.py which is essentially the same thing)
+        <p>
+        <li>After installation of the example packages you can now go and look through some of the scripts for setting attributes such as Vehicle.mode, Vehicle.armed, Vehicle.airspeed, Vehicle.home_location(special considerations for changing this value). If you have never used python to code like me it's a good idea to look through some of the scripts to see some of the differences between your native syntax and python.
+        <p>
+        <li>The default location is located in Australia at Canberra Model Aircraft Club Flying Field. If we want to change our location from Australia to Hood River Oregon
+          we would need to run: <b>dronekit-sitl copter -home=45.718110, -121.495071</b>
+        <p><img src="Dronkit_Images\change_home.png" style="width:25%">
+        <div>
+          <li>Ok, so lets explore some of the code and what we are sending in the script and how to make some calls. The API documentation is a better reference and contains
+            all of the Attributes that can be called on the system, but just to get a general understanding of the syntax lets look at how Python extablishes a call to the SITL
+            which then returns a ready and willing aircraft.
+            <p>
+          <li>
+            In the example below we can see there is a call to a time import and also a call to import a connection. This establishes a TCP connection on a set IP configuration
+            and port number so your device can communicate. Refer to the picture above where we first ran the HelloDrone.py script for reference. Below this we see where we create an
+            airvehicle object with <b>vehicle = connect(connpath, wait_ready=True)</b>. The nuts and bolts of this are that you are making a callback with wait_ready. After this we
+            set some of the initial parameters which make a call to MAVLink parameters which are based in C++. Oh boy look two different languages being used as one!!
+            <p>
+            <p><img src="Dronkit_Images\dronekit_call.png" style="width:35%">
+          <li>
+            When creating scripts in Python Ardupilot there are 14 Different modes each are typically entered in the sequence as follows:
+            <li>Stabilize
+              <em>This is a mode for more advanced user and if first learning one should us Alt Hold or Loiter instead.</em>
+              <li>Alt Hold
+                <em>The throttle is used to maintain altitude, this mode is incorporated into several other flight modes such as Loiter or Sport.</em>
+                <li>Loiter
+                  <em>Copter will hold position if there is not input based on GPS.</em>
+                  <li>RTL or Return to Launch
+                    <em>When the Copter is first initialized or when using the SITL whatever the --home location is will be the point that the copter uses to RTB.</em>
+                    <li>Auto
+                      <em>This mode is what we use when writing scripts as the copter has a preprogrammed flight path.</em>
+
+              <li>We can write a simple script to take-off and head to a designated coordinate through the script and then output that to either MAVLink or Mission Planner to view
+                the aircraft with a map. Mission Planner is displayed and also has embedded features to add or remove waypoints, target altitudes and RTL locations. Running a script through <thead>
+                  SITL makes for good flight testing as well as situational awareness for terrain avoidance.
+                  <p><img src="Dronkit_Images\takeoff_example.png" style="width:55%">
+                </thead>
+                </thead>
+        </div>
+      </div>
+    </div>
+  </div>
+  <hr>
+<!-- Phase 4 Content-->
+ <div class="MiddleContentC">
+    <div class="middleC">
+     <h3><b>Phase 4 Installing MAVLink Issues</b></h3>
+     <div>
+       <p class="contentC">Step 4<ul>
+        <p>
+        <li>Ok, so if you remember from the diagram above you'll see that MAVLink is what DroneKit uses as parameters for flight. We need to
+          install MAVLink which is pretty nifty to help us make simplified calls to our autopilot system instead of having to do all of the
+          heavy lifting.
+        <p><li>To do this we need to install MAVProxy on our system which isn't the easiest process to do. For reference proceed to <a href="http://ardupilot.org/dev/docs/sitl-native-on-windows.html">Native SITL builds:</a>
+        Basically there's two ways to do this one is to run the SITL from your computer and also run MAVProxy to connect to. The other is to run another is to use MAVProxy to run the SITL. To be honest I'm not really sure what
+        the difference is other than what the API says. But for our purposes we are going to use DroneKit to run the SITL and connect to a Ground Control Station (GCS) it using mavlink. This step turned out to be a lot more problematic for
+        me running Windows 10. The issues getting the SITL build to run with MAVlink.
+        <p>
+           <p><img src="Dronkit_Images\mavlink_builderror.png" style="width:35%">
+          <p>This issue seems to deal with the Windows 10 Home Directory during the sitl build process. There are some troubleshooting steps that I've followed, but without luck. One of those being changing the make file the example's below.<p><img src="Dronkit_Images\makefile.png" style="width:50%">
+          <li>One of the posted solutions is to change the Cgywin.bat file homepath location because Windows 10 doesn't allow it to fully expand. You can test and see what your home path directory is in the Cgywin terminal window by typing
+            <b><li>echo $HOME<li>echo $HOMEPATH<li>printenv<p>You should be able to reference with Cgywin to make sure that it's seeing your path correctly. The picture below shows the troubleshooting step.<p><img src="Dronkit_Images\home_path.png"style="width:35%">
+          <li><p>Thud...The sound of me hiting a wall at this point with troubleshooting and directions for Windows 10 are fragmented and disjointed. There's a problem with the path that labels %HOMEGROUP%' which needs to be renamed Cgywin instead for the makefile to build the Sitl per the instructions.
+          <li>While troubleshooting I did install mission planner and after launching the SITL with <b> dronekit sitl copter </b> command then connecting the mission planner map overlay and planning tool to the SITL ip of 127.0.0.1 on Port 5760 I was able to connect to the airvehicle and
+          see it's position on the map.
+          <p> <img src="Dronkit_Images\missionplanner.png" style="wide:35%">
+        </div>
+        <hr>
+        <!-- Phase 4 Content-->
+ <div class="MiddleContentD">
+    <div class="middleD">
+     <h3><b>Phase 5 Installing using Vagrant and Issues</b></h3>
+     <div>
+       <p class="contentD">Step 5<ul>
+        <p>
+        <li>Installing the Native SITL version didn't work for me, but the API also speaks to installing what is known as a Vagrant version <a href="http://ardupilot.org/dev/docs/setting-up-sitl-using-vagrant.html">(Documentation)</a>. This is essentially a virtual machine and is relatively quick to install. Again unfortunately it's installing several pieces of software after already
+          installing multiple pieces of software from my attempt at running the SITL Natively. This is the process to setup the API to work with Vagrant which will also install Ubuntu if not already installed on your machine.
+        <p>The other piece if not done will be to download the github arducopter repository.
+          <p><img src="Dronkit_Images\github.png" style="width:35%">
+          <p>After the install for the vagrant version and following the instructions the following ERROR output for me was had:
+            <p><img src="Dronkit_Images\vagrant.png" style="width:35%">
+            <b><li>Per the instructions the command <em>vagrant up</em> should initialize the virtual machine, but it does not alas I blame Windows 10 for these issues. The issue seems to prevent virtual box from being able to initialize. The documentation for troubleshooting with Windows 10 is very limited and in most forums with sucessful installs used either a MAC or Windows 8 or Linux.
+            As of this writing I didn't see a feesable solution to this problem. The solutions were to reinstall Windows or uninstall virtual box and reinstall it which I completed to no avail.
+            <p><p><img src="Dronkit_Images\vagrant_error.png" style="width:25%">
+        </div>
+
+      </div>
+    </div>
+  </div>
+  <hr>
+  <div class="MiddleContentE">
+     <div class="middleE">
+      <h3><b>Where to go from here...</b></h3>
+      <div>
+        <p class="contentE">Troubleshooting and Future Development<ul>
+         <p>
+         <li>To wrap up what we have done which is quite a bit. We have installed and attempted to configure all of the following.
+          <p><em>DroneKit on it's own can run the SITL through a script base interface, but we didn't just want to do that!</em>
+          <li>DroneKit
+            <li>DroneKit-Sitl
+            <em>Cygwin and MAVProxy were to attach additional GCS running "Natively" <a href="http://firmware.us.ardupilot.org/Tools/MAVProxy/">Download Here</a>
+              <li>Cygwin - <em>This had a lot of package files that went with it as well make sure to go through and select the correct boxes</em>
+                <li>MAVProxy
+                <li>Ardupilot - <em>This really is installed as part of MAVProxy, but don't be confused they are separate entities of software to firmware!
+                <em>Since the previous Native version didn't work we tried to run a Vagrant virtual machine</em>
+                <li>Vagrant
+                  <li>Ubuntu
+                    <li>Oracle Virtual Box
+                      <li>.git
+            <p>
+              Whew! That's a lot of software to just get a simulator to run on a map and that's while learning some Python language to write autpilot script. All in all well done even if it's still a work in progress. I plan to keep
+              on working the issues to see if there's a patch for the Windows 10 or possibly even revert back to Windows 8 since after updating my computer I have started to dislike this new version. Below is a simple script that I wrote to just
+              demonstrate the basic scripting capabilities of the DroneKit API.
+              <p>
+                <iframe src="Dronkit_Images\script_run" width="60%" height="600">
+         </div>
+         <script src="_script.js"></script>
+       </div>
+     </div>
+   </div>
+   <hr>
+  <!-- Posts -->
+
 </html>
