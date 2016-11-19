@@ -105,7 +105,8 @@ body,h1,h2,h3,h4
            This part is relatively simple to do simply enter from the script location command prompt:
            dronekit-sitl copter (This part isn't really that clear the API has you run hello.py which is essentially the same thing)
         <p>
-        <li>After installation of the example packages you can now go and look through some of the scripts for setting attributes such as Vehicle.mode, Vehicle.armed, Vehicle.airspeed, Vehicle.home_location(special considerations for changing this value). If you have never used python to code like me it's a good idea to look through some of the scripts to see some of the differences between your native syntax and python.
+        <li>Dronekit can be used as a stand alone to just run a script from the SITL. This isn't all the API is designed to do. There's several other layers as listed above that can be used
+          in conjunction with DroneKit. Attaching the SITL to MAVProxy to do some of the lifting for programmers makes writing script a lot easier. We will cover some of that down below.
         <p>
         <li>The default location is located in Australia at Canberra Model Aircraft Club Flying Field. If we want to change our location from Australia to Hood River Oregon
           we would need to run: <b>dronekit-sitl copter -home=45.718110, -121.495071</b>
@@ -216,7 +217,7 @@ body,h1,h2,h3,h4
               on working the issues to see if there's a patch for the Windows 10 or possibly even revert back to Windows 8 since after updating my computer I have started to dislike this new version. Below is a simple script that I wrote to just
               demonstrate the basic scripting capabilities of the DroneKit API.
               <p>
-                <iframe src="https://youtu.be/8BB9DjTyz10" width="420" height="300 "style="border:none;">
+                <iframe src="https://youtu.be/8BB9DjTyz10" width="420" height="300 ">
                   <p>Browser Doesn't Support</p>
                 </iframe>
          </div>
