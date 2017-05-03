@@ -1,7 +1,6 @@
 #!/usr/bin/env python
 #***************************************************************************************
 #Project 2 Computing Minimum Coins for given change amount
-#Group Members: Dustin LaGrone, Jonathan Andrew, James Stallkamp
 #Date: May 5th, 2017
 #Description: Cointains 4 different variations of the problem ranging from Top to Bottom
 # Dynamic Programming with Memoization
